@@ -3,8 +3,8 @@ pluginManagement {
         mavenLocal()
         gradlePluginPortal()
         mavenCentral()
-        jcenter()
+        //jcenter()
         maven("https://dl.bintray.com/kotlin/kotlin-eap")
     }
 }
-rootProject.name = "mirai-console-plugin-template"
+rootProject.name = "cc.ymgg.openai"

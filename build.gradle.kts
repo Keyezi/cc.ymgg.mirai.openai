@@ -1,17 +1,28 @@
 plugins {
-    val kotlinVersion = "1.4.31"
+    val kotlinVersion = "1.4.30"
     kotlin("jvm") version kotlinVersion
     kotlin("plugin.serialization") version kotlinVersion
 
-    id("net.mamoe.mirai-console") version "2.4.1"
+    id("net.mamoe.mirai-console") version "2.6.6"
 }
 
-group = "org.example"
-version = "0.1.0"
+group = "cc.ymgg"
+version = "2021.6"
 
 repositories {
     mavenLocal()
     maven("https://maven.aliyun.com/repository/public") // 阿里云国内代理仓库
     mavenCentral()
-    jcenter()
+    //jcenter()
+}
+dependencies {
+    
+    implementation("io.fusionauth:fusionauth-jwt:4.1.0")
+    implementation("com.alibaba:fastjson:1.2.75")
+    implementation("com.squareup.okhttp3:okhttp:4.1.0")
+    
+//    implementation ("io.ktor:ktor-server-core:1.5.2")
+//    implementation ("io.ktor:ktor-server-netty:1.5.2")
+//    implementation ("io.ktor:ktor-serialization:1.5.2")
+    
 }
