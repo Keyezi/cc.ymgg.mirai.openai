@@ -9,15 +9,13 @@ class PostUtil {
     private val requestBody = FormBody.Builder()
     private val request = Request.Builder()
     private var url = ""
-    fun build(func: PostUtil. () -> Unit): String {
+    fun build(func: PostUtil.() -> Unit): String {
         func()
-        
         return httpClient.newCall(
             request
                 .url(url)
                 .post(requestBody.build())
-                .build()
-                                 )
+                .build())
             .execute().body!!.string()
     }
     

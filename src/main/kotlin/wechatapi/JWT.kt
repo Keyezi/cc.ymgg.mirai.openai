@@ -1,7 +1,6 @@
 package cc.ymgg.openai.wechatapi
 
 import cc.ymgg.openai.http.PostUtil
-import cc.ymgg.openai.logutil.Log
 import io.fusionauth.jwt.domain.JWT
 import io.fusionauth.jwt.hmac.HMACSigner
 import java.time.ZoneId
@@ -31,12 +30,13 @@ class WechatAPI(InputToken: String, InputEncodingAESKey: String) {
         val avatar = "http://q1.qlogo.cn/g?b=qq&nk=$qid&s=640"
         
         val singer = HMACSigner.newSHA256Signer(jwtkey)
-        val jwt = JWT().setIssuedAt(ZonedDateTime.now(ZoneId.of("Asia/Shanghai")))
+        val jwt = JWT()
+            .setIssuedAt(ZonedDateTime.now(ZoneId.of("Asia/Shanghai")))
             .setExpiration(ZonedDateTime.now(ZoneId.of("Asia/Shanghai")).plusMinutes(60))
             .addClaim("userid", qid)
             .addClaim("avatar", avatar)
             .addClaim("username", name)
-       //Log.e(ZonedDateTime.now(ZoneId.of("Asia/Shanghai")).plusMinutes(60).toString())
+      // Log.e(ZonedDateTime.now(ZoneId.of("Asia/Shanghai")).plusMinutes(60).toLocalTime().toString())
         val env = if (online) "online" else "debug"
         return PostUtil().build {
             url("https://openai.weixin.qq.com/openapi/aibot/$token")

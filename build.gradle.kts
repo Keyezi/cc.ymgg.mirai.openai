@@ -1,5 +1,5 @@
 plugins {
-    val kotlinVersion = "1.4.30"
+    val kotlinVersion = "1.5.31"
     kotlin("jvm") version kotlinVersion
     kotlin("plugin.serialization") version kotlinVersion
 
@@ -11,15 +11,15 @@ version = "2021.6"
 
 repositories {
     mavenLocal()
-    maven("https://maven.aliyun.com/repository/public") // 阿里云国内代理仓库
+    //maven("https://maven.aliyun.com/repository/public") // 阿里云国内代理仓库
     mavenCentral()
     //jcenter()
 }
 dependencies {
     
-    implementation("io.fusionauth:fusionauth-jwt:4.1.0")
-    implementation("com.alibaba:fastjson:1.2.75")
-    implementation("com.squareup.okhttp3:okhttp:4.1.0")
+    implementation("io.fusionauth:fusionauth-jwt:5.0.0")
+    implementation("com.alibaba:fastjson:1.2.78")
+    implementation("com.squareup.okhttp3:okhttp:4.9.2")
     
 //    implementation ("io.ktor:ktor-server-core:1.5.2")
 //    implementation ("io.ktor:ktor-server-netty:1.5.2")

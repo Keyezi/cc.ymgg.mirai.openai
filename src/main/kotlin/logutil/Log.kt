@@ -3,9 +3,9 @@ package cc.ymgg.openai.logutil
 import cc.ymgg.openai.PluginMain
 
 @Suppress("unused")
-class Log {
+object Log {
     
-    companion object {
+    
         private const val VERBOSE = 1
         private const val DEBUG = 2
         private const val INFO = 3
@@ -37,7 +37,7 @@ class Log {
         }
         
         private fun cw(msg: String, title: String?): String = if (title == null) msg else "[$title]$msg"
-    }
+    
     
 }
 
