@@ -1,5 +1,5 @@
 plugins {
-    val kotlinVersion = "1.5.31"
+    val kotlinVersion = "1.4.30"
     kotlin("jvm") version kotlinVersion
     kotlin("plugin.serialization") version kotlinVersion
 
@@ -7,7 +7,7 @@ plugins {
 }
 
 group = "cc.ymgg"
-version = "2021.6"
+version = "2021.11"
 
 repositories {
     mavenLocal()

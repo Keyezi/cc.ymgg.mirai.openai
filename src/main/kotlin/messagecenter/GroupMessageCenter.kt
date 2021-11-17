@@ -2,6 +2,7 @@ package cc.ymgg.openai.messagecenter
 
 import cc.ymgg.openai.config.PluginConf
 import cc.ymgg.openai.config.PluginConf.prefix
+import cc.ymgg.openai.config.WechatConf
 import cc.ymgg.openai.globalvar.wechatAPI
 import cc.ymgg.openai.logutil.Log
 import com.alibaba.fastjson.JSON
@@ -13,18 +14,19 @@ object GroupMessageCenter {
     suspend fun run(msg: GroupMessageEvent) {
         // if ((msg.message[1] != At(msg.bot.id)) and PluginConf.atreply) return //废弃方法
         
+        for (message in msg.message) when (message) {
+            is At                         -> break
+            msg.message[msg.message.size] -> return
+        }
         
-        for (gp in PluginConf.useGroupList) {
-            if (PluginConf.enableGroupListMode) {
-                if (gp != msg.group.id) return
-            } else {
-                if (gp == msg.group.id) return
-            }
-            
+        for (gp in PluginConf.useGroupList) if (PluginConf.enableGroupListMode) {
+            if (gp != msg.group.id) return
+        } else {
+            if (gp == msg.group.id) return
         }
         
         
-        val result = wechatAPI.doRequest(msg.sender.id, msg.sender.nick, msg.message.toString())
+        val result = wechatAPI.doRequest(msg.sender.id, msg.sender.nick, msg.message.toString(),WechatConf.debug)
         
         val json = JSON.parseObject(result)
         

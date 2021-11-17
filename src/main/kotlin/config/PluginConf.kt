@@ -11,6 +11,7 @@ object PluginConf: AutoSavePluginConfig("Config") {
     /**  被@时回复 */
     @ValueDescription("被@回复")
     var replyat by value<Boolean>()
+    
     var useGroupList by value<List<Long>>()
     var enableGroupListMode by value<Boolean>()
     var enableGroupChat by value<Boolean>()

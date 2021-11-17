@@ -18,7 +18,7 @@ import net.mamoe.mirai.message.data.At
 import kotlin.reflect.jvm.internal.impl.descriptors.Visibilities
 
 
-object PluginMain : KotlinPlugin(JvmPluginDescription(id = "cc.ymgg.openai", name = "AI闲聊", version = "2021.6")) {
+object PluginMain : KotlinPlugin(JvmPluginDescription(id = "cc.ymgg.openai", name = "AI闲聊", version = "2021.11")) {
     
     override fun onEnable() {
         // logger.info { "Plugin loaded" }
