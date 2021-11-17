@@ -27,7 +27,7 @@ object PluginMain : KotlinPlugin(JvmPluginDescription(id = "cc.ymgg.openai", nam
         
         wechatAPI = WechatAPI(WechatConf.TOKEN, WechatConf.EncodingAESKey)
         
-        PluginConf.useGroupList = listOf(1213123L, 4564876L)
+        
         this.globalEventChannel().subscribeAlways<GroupMessageEvent> {
             if (enable and PluginConf.enableGroupChat) GroupMessageCenter.run(this) }
         this.globalEventChannel().subscribeAlways<FriendMessageEvent> {
