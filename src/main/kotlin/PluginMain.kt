@@ -2,6 +2,7 @@ package cc.ymgg.openai
 
 import cc.ymgg.openai.config.PluginConf
 import cc.ymgg.openai.config.WechatConf
+import cc.ymgg.openai.frame.MainFrame
 import cc.ymgg.openai.globalvar.enable
 import cc.ymgg.openai.globalvar.wechatAPI
 import cc.ymgg.openai.logutil.Log
@@ -26,7 +27,7 @@ object PluginMain : KotlinPlugin(JvmPluginDescription(id = "cc.ymgg.openai", nam
         WechatConf.reload()
         
         wechatAPI = WechatAPI(WechatConf.TOKEN, WechatConf.EncodingAESKey)
-        
+        MainFrame.init()
         
         this.globalEventChannel().subscribeAlways<GroupMessageEvent> {
             if (enable and PluginConf.enableGroupChat) GroupMessageCenter.run(this) }

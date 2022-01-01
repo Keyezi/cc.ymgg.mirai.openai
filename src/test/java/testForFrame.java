@@ -1,4 +1,4 @@
-import cc.ymgg.openai.MainFrame;
+import cc.ymgg.openai.frame.MainFrame;
 
 public class testForFrame {
     public static void main(String[] args) {
