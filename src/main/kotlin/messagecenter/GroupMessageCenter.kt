@@ -15,8 +15,8 @@ object GroupMessageCenter {
         // if ((msg.message[1] != At(msg.bot.id)) and PluginConf.atreply) return //废弃方法
         
         for (message in msg.message) when (message) {
-            is At                         -> break
-            msg.message[msg.message.size] -> return
+            is At                             -> break
+            msg.message[msg.message.size - 1] -> return
         }
         
         for (gp in PluginConf.useGroupList) if (PluginConf.enableGroupListMode) {
@@ -26,7 +26,7 @@ object GroupMessageCenter {
         }
         
         
-        val result = wechatAPI.doRequest(msg.sender.id, msg.sender.nick, msg.message.toString(),WechatConf.debug)
+        val result = wechatAPI.doRequest(msg.sender.id, msg.sender.nick, msg.message.contentToString(), WechatConf.debug)
         
         val json = JSON.parseObject(result)
         

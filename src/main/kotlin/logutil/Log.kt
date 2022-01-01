@@ -5,7 +5,6 @@ import cc.ymgg.openai.PluginMain
 @Suppress("unused")
 object Log {
     
-    
         private const val VERBOSE = 1
         private const val DEBUG = 2
         private const val INFO = 3
