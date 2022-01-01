@@ -5,7 +5,9 @@ import java.awt.*;
 import cc.ymgg.openai.api.TextArea;
 
 public class InputTextArea extends JTextArea implements TextArea {
+    public InputTextArea(){
 
+    }
     public InputTextArea(Container fatherContainer, int x, int y, int width, int height, boolean editable){
         fatherContainer.add(this);
         this.setBounds(x,y,width,height);
@@ -20,6 +22,11 @@ public class InputTextArea extends JTextArea implements TextArea {
         this.setBorder(BorderFactory.createTitledBorder(name));
         this.setName(name);
         this.setBackground((new Color(240,240,240)));
+    }
+    public InputTextArea(Container fatherContainer, int x, int y, int width, int height,String name){
+        fatherContainer.add(this);
+        this.setBounds(x,y,width,height);
+        this.setName(name);
     }
     @Override
     public void setTextToArea(String text){

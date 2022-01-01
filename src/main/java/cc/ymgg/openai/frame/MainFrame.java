@@ -43,6 +43,9 @@ public class MainFrame implements Runnable{
         frame.setBounds(ConstantsForFrame.DEFAULT_MAIN_FRAME_X_LOCATION.var, ConstantsForFrame.DEFAULT_MAIN_FRAME_Y_LOCATION.var,640,590);
         frame.setVisible(true);
         frame.setResizable(false);
+        frame.setLayout(null);
+        frame.setIconImage(Utils.getImageFromFile("Frame 1icon.png"));
+        frame.setTitle("Robot Controller");
         frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         cardPanels.setBounds(0,0,frame.getWidth()-10,frame.getHeight()/20*18);
         addBasicSettingCardToFrame();
@@ -148,5 +151,42 @@ public class MainFrame implements Runnable{
             if (value instanceof FontUIResource)
                 UIManager.put(key, fontRes);
         }
+    }
+    void addTray(){
+        SystemTray tray = SystemTray.getSystemTray();
+        PopupMenu popupMenu = new PopupMenu();
+        MenuItem[] items = new MenuItem[ComponentNames.TRAY_POP_MENU_NAMES.length];
+        for (int i = 0; i < items.length; i++) {
+            items[i] = new MenuItem(ComponentNames.TRAY_POP_MENU_NAMES[i]);
+            popupMenu.add(items[i]);
+        }
+        TrayIcon icon = new TrayIcon(Utils.getImageFromFile("Frame 1icon.png"),"Robot Controller",popupMenu);
+        try {
+            tray.add(icon);
+        } catch (AWTException e) {
+            e.printStackTrace();
+        }
+        icon.setImageAutoSize(true);
+        items[0].addActionListener(e-> {
+            if (frame!=null){
+                frame.setVisible(true);
+            }else {
+                launchMainFrame();
+            }
+        });
+        items[1].addActionListener(e-> System.exit(0));
+        icon.addMouseListener(new MouseAdapter() {
+            @Override
+            public void mousePressed(MouseEvent e) {
+                if (frame!=null){
+                    frame.setVisible(true);
+                }else {
+                    launchMainFrame();
+                }
+            }
+        });
+    }
+    public static void init(){
+        Utils.threadFactory(new MainFrame(false)).start();
     }
 }
