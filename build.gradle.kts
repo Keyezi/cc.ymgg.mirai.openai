@@ -20,7 +20,8 @@ dependencies {
     implementation("io.fusionauth:fusionauth-jwt:5.0.0")
     implementation("com.alibaba:fastjson:1.2.78")
     implementation("com.squareup.okhttp3:okhttp:4.9.2")
-    
+    implementation("com.google.zxing:core:3.4.1")
+    implementation("com.google.zxing:javase:3.4.1")
 //    implementation ("io.ktor:ktor-server-core:1.5.2")
 //    implementation ("io.ktor:ktor-server-netty:1.5.2")
 //    implementation ("io.ktor:ktor-serialization:1.5.2")
