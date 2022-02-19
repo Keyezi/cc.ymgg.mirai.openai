@@ -21,4 +21,11 @@ object PluginConf: AutoSavePluginConfig("Config") {
     var enablePrivateChat by value<Boolean>()
     @ValueDescription("前缀")
     var prefix by value<String>()
+    @ValueDescription("回复概率")
+    var replyProbability by value<Int>(100)
+    @ValueDescription("回复延迟（毫秒）")
+    var delayedReply by value<Long>(0)
+    
+    
+    
 }

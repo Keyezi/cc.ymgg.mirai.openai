@@ -5,6 +5,7 @@ pluginManagement {
         mavenCentral()
         //jcenter()
         //maven("https://dl.bintray.com/kotlin/kotlin-eap")
+        
     }
 }
 rootProject.name = "cc.ymgg.openai"

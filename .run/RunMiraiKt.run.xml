@@ -1,6 +1,6 @@
 <component name="ProjectRunConfigurationManager">
   <configuration default="false" name="RunMiraiKt" type="JetRunConfigurationType" nameIsGenerated="true">
-    <option name="MAIN_CLASS_NAME" value="cc.ymgg.openai.runmiraikt.RunMiraiKt" />
+    <option name="MAIN_CLASS_NAME" value="org.example.mirai.plugin.RunMiraiKt" />
     <module name="cc.ymgg.openai.test" />
     <shortenClasspath name="NONE" />
     <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/run" />
